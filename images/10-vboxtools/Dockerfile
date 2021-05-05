@@ -1,4 +1,4 @@
-FROM gcc:10.3 as build-essential
+FROM gcc:10.3.0 as build-essential
 
 ENV KERNEL_VERSION 5.10.28-burmilla
 
@@ -37,7 +37,9 @@ RUN set -x \
       KERN_VER="${KERNEL_VERSION}" \
       vboxguest vboxsf
 
+
 FROM debian:stable-slim
+
 WORKDIR /dist
 
 RUN set -x \
